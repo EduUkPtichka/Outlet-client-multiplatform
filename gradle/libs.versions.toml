@@ -1,26 +1,50 @@
 [versions]
 
-#Plugin
-# https://github.com/gmazzo/gradle-buildconfig-plugin
-gmazzo-buildconfigPlugin = "5.3.5"
-# https://plugins.gradle.org/plugin/org.jetbrains.kotlin.multiplatform
-jetbrains-kotlinMultiplatformPlugin = "1.9.22"
-# https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm/1.9.22
-jetbrains-kotlinJvmPlugin = "1.9.22"
-
-agp = "8.2.0"
+#Configuration Abdroid
+android-compileOptions-kotlinCompiler = "1.5.10"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
+
+#Plugin
+#   https://plugins.gradle.org/plugin/org.jetbrains.kotlin.multiplatform
+jetbrains-kotlinMultiplatformPlugin = "1.9.22"
+#   https://plugins.gradle.org/plugin/org.jetbrains.compose
+jetbrains-composePlugin = "1.6.0"
+#   https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm
+jetbrains-kotlinJvmPlugin = "1.9.22"
+#   https://plugins.gradle.org/plugin/org.jetbrains.kotlin.native.cocoapods/1.9.22
+jetbrains-kotlinNativeCocoapodsPlugin = "1.9.22"
+#   https://mvnrepository.com/artifact/com.android.tools.build/gradle/8.3.0
+agp = "8.2.2"
+#   https://github.com/gmazzo/gradle-buildconfig-plugin
+gmazzo-buildconfigPlugin = "5.3.5"
+
+#-------------------------------------------------------------------------------------------------#
+
+#Jetbrains Compose
+#   https://mvnrepository.com/artifact/org.jetbrains.compose.runtime/runtime/1.6.1
+jetbrains-composeRuntime = "1.6.1"
+#   https://mvnrepository.com/artifact/org.jetbrains.compose.foundation/foundation/1.6.1
+jetbrains-composeFoundation = "1.6.1"
+#   https://mvnrepository.com/artifact/org.jetbrains.compose.material3/material3
+jetbrains-composeMaterial3 = "1.6.1"
+#   https://mvnrepository.com/artifact/org.jetbrains.compose.ui/ui/1.6.1
+jetbrains-composeUi = "1.6.1"
+#
+jetbrains-composeComponentsUiToolingPreview = "1.6.1"
+
+# Android
 androidx-activityCompose = "1.8.2"
+
+
 androidx-appcompat = "1.6.1"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.12.0"
 androidx-espresso-core = "3.5.1"
 androidx-material = "1.11.0"
 androidx-test-junit = "1.1.5"
-compose = "1.6.2"
-compose-plugin = "1.6.0"
+compose = "1.6.3"
 junit = "4.13.2"
 kotlin = "1.9.22"
 
@@ -34,18 +58,28 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
+# Andropd
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
+# Jetbrain Compose
+jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "jetbrains-composeRuntime" } #runtimeOnly
+jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jetbrains-composeFoundation" }
+jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "jetbrains-composeMaterial3" }
+jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "jetbrains-composeUi" }
+jetbrains-compose-components-ui-toooling-preview = { module = "org.jetbrains.compose.components:components-ui-tooling-preview", version.ref = "jetbrains-composeComponentsUiToolingPreview" }
+
 [plugins]
-
+#Jetbrains
 jetbrains-kotlin-multiplatform-plugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "jetbrains-kotlinMultiplatformPlugin" }
-jetbrains-kotlin-jvm-plugin = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlinJvmPlugin"}
+jetbrains-kotlin-jvm-plugin = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlinJvmPlugin" }
+jetbrains-compose-plugin = { id = "org.jetbrains.compose", version.ref = "jetbrains-composePlugin" }
+jetbrains-kotlin-native-cocoapods-plugin = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "jetbrains-kotlinNativeCocoapodsPlugin"}
 
-gmazzo-buildconfig-plugin = { id = "com.github.gmazzo.buildconfig", version.ref = "gmazzo-buildconfigPlugin" }
-
-
+android-library-plugin = { id = "com.android.library", version.ref = "agp" }
 androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+
+# Gradle entourage
+gmazzo-buildconfig-plugin = { id = "com.github.gmazzo.buildconfig", version.ref = "gmazzo-buildconfigPlugin" }
