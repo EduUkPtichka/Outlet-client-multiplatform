@@ -1,4 +1,13 @@
 [versions]
+
+#Plugin
+# https://github.com/gmazzo/gradle-buildconfig-plugin
+gmazzo-buildconfigPlugin = "5.3.5"
+# https://plugins.gradle.org/plugin/org.jetbrains.kotlin.multiplatform
+jetbrains-kotlinMultiplatformPlugin = "1.9.22"
+# https://plugins.gradle.org/plugin/org.jetbrains.kotlin.jvm/1.9.22
+jetbrains-kotlinJvmPlugin = "1.9.22"
+
 agp = "8.2.0"
 android-compileSdk = "34"
 android-minSdk = "24"
@@ -30,7 +39,13 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
 [plugins]
+
+jetbrains-kotlin-multiplatform-plugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "jetbrains-kotlinMultiplatformPlugin" }
+jetbrains-kotlin-jvm-plugin = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlinJvmPlugin"}
+
+gmazzo-buildconfig-plugin = { id = "com.github.gmazzo.buildconfig", version.ref = "gmazzo-buildconfigPlugin" }
+
+
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
