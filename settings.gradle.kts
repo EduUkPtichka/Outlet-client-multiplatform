@@ -26,3 +26,6 @@ includeBuild("build-support-buildconfig")
 include(":common-feature-presentation:jetbrains-compose:home-jetbrains-compose")
 
 include(":composeApp")
+
+//Pojo/Poko
+include("pojo-poko")

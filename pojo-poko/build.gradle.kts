@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 plugins {
     alias(libs.plugins.jetbrains.kotlin.multiplatform.plugin)
     alias(libs.plugins.jetbrains.compose.plugin)
-    alias(libs.plugins.jetbrains.kotlin.native.cocoapods.plugin)
     alias(libs.plugins.android.library.plugin)
+    alias(libs.plugins.jetbrains.kotlin.native.cocoapods.plugin)
 }
 
 kotlin {
@@ -21,8 +21,8 @@ kotlin {
 
     cocoapods {
         version = "2.0"
-        name = "home-jetbrains-compose"
-        summary = "Feature home module. Compose multiplatform"
+        name = "pojo-poko"
+        summary = "Clean Data Layer"
 
         ios.deploymentTarget = "15.0"
 
@@ -34,24 +34,17 @@ kotlin {
         }
 
         framework {
-            baseName = "home-jetbrains-compose"
+            baseName = "pojo-poko"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.jetbrains.compose.runtime)
-            implementation(libs.jetbrains.compose.foundation)
-            implementation(libs.jetbrains.compose.material3)
-            implementation(libs.jetbrains.compose.ui)
-            implementation(libs.jetbrains.compose.components.ui.toooling.preview)
 
-            //Project module implementation
-            implementation(projects.pojoPoko)
         }
         androidMain.dependencies {
-            implementation(libs.androidx.activity.compose)
+
         }
         iosMain.dependencies {
 
