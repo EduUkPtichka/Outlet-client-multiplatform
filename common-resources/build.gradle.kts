@@ -2,9 +2,9 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 
 plugins {
     alias(libs.plugins.jetbrains.kotlin.multiplatform.plugin)
-    alias(libs.plugins.jetbrains.compose.plugin)
     alias(libs.plugins.jetbrains.kotlin.native.cocoapods.plugin)
     alias(libs.plugins.android.library.plugin)
+    alias(libs.plugins.icerock.multiplatform.resources.plugin)
 }
 
 kotlin {
@@ -15,14 +15,18 @@ kotlin {
             }
         }
     }
+
+    androidTarget()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
 
+    applyDefaultHierarchyTemplate()
+
     cocoapods {
         version = "2.0"
-        name = "home-jetbrains-compose"
-        summary = "Feature home module. Compose multiplatform"
+        name = "common-resources"
+        summary = "Multiplatform resources Android and iOS"
 
         ios.deploymentTarget = "15.0"
 
@@ -34,30 +38,19 @@ kotlin {
         }
 
         framework {
-            baseName = "home-jetbrains-compose"
+            baseName = "common-resources"
             isStatic = true
+
+            export(libs.icerock.moko.resources)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-
-            // Jetbrains Compose
-            implementation(libs.jetbrains.compose.runtime)
-            implementation(libs.jetbrains.compose.foundation)
-            implementation(libs.jetbrains.compose.material3)
-            implementation(libs.jetbrains.compose.ui)
-            implementation(libs.jetbrains.compose.components.ui.toooling.preview)
-
-            // Coil
-            implementation(libs.coilkt.coil.compose)
-            implementation(libs.coilkt.coil3.compose.core)
-
-            // Project module implementation
-            implementation(projects.pojoPoko)
+            api(libs.icerock.moko.resources)
         }
         androidMain.dependencies {
-            implementation(libs.androidx.activity.compose)
+
         }
         iosMain.dependencies {
 
@@ -66,7 +59,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.ukenov_outlet.home_jetbrains_compose"
+    namespace = "com.ukenov_outlet.common_resources"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     // Указывает на местоположение AndroidManifest
@@ -76,18 +69,10 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
 
-    buildFeatures {
-        compose = true
-        buildConfig = true
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.android.compileOptions.kotlinCompiler.get()
     }
 
     packaging {
@@ -95,8 +80,8 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
 
-    dependencies {
-        debugImplementation(libs.androidx.compose.ui.tooling)
-    }
+multiplatformResources {
+    resourcesPackage = "com.ukenov_outlet.common_resources"
 }

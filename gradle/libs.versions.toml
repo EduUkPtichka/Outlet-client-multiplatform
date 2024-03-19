@@ -15,6 +15,8 @@ jetbrains-composePlugin = "1.6.0"
 jetbrains-kotlinJvmPlugin = "1.9.22"
 #   https://plugins.gradle.org/plugin/org.jetbrains.kotlin.native.cocoapods/1.9.22
 jetbrains-kotlinNativeCocoapodsPlugin = "1.9.22"
+#   https://plugins.gradle.org/plugin/dev.icerock.mobile.multiplatform-resources
+icerock-multiplatformResourcesPlugin = "0.24.0-alpha-5"
 #   https://mvnrepository.com/artifact/com.android.tools.build/gradle/8.3.0
 agp = "8.2.2"
 #   https://github.com/gmazzo/gradle-buildconfig-plugin
@@ -22,7 +24,7 @@ gmazzo-buildconfigPlugin = "5.3.5"
 
 #-------------------------------------------------------------------------------------------------#
 
-#Jetbrains Compose
+# Jetbrains Compose
 #   https://mvnrepository.com/artifact/org.jetbrains.compose.runtime/runtime/1.6.1
 jetbrains-composeRuntime = "1.6.1"
 #   https://mvnrepository.com/artifact/org.jetbrains.compose.foundation/foundation/1.6.1
@@ -31,13 +33,22 @@ jetbrains-composeFoundation = "1.6.1"
 jetbrains-composeMaterial3 = "1.6.1"
 #   https://mvnrepository.com/artifact/org.jetbrains.compose.ui/ui/1.6.1
 jetbrains-composeUi = "1.6.1"
-#
+#   https://central.sonatype.com/artifact/org.jetbrains.compose.components/components-ui-tooling-preview
 jetbrains-composeComponentsUiToolingPreview = "1.6.1"
+
+# Coil
+#   https://central.sonatype.com/artifact/io.coil-kt.coil3/coil
+coilkt-coil3 = "3.0.0-alpha06"
+#   https://central.sonatype.com/artifact/io.coil-kt.coil3/coil-compose-core/dependencies
+coilkt-coil3ComposeCore = "3.0.0-alpha06"
+#   https://central.sonatype.com/artifact/io.coil-kt/coil-compose
+coilkt-coilCompose = "2.6.0"
+
+# Moko
+icerock-mokoResources = "0.24.0-alpha-5"
 
 # Android
 androidx-activityCompose = "1.8.2"
-
-
 androidx-appcompat = "1.6.1"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.12.0"
@@ -61,9 +72,6 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
-# Andropd
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
-
 # Jetbrain Compose
 jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "jetbrains-composeRuntime" } #runtimeOnly
 jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jetbrains-composeFoundation" }
@@ -71,13 +79,28 @@ jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:materi
 jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "jetbrains-composeUi" }
 jetbrains-compose-components-ui-toooling-preview = { module = "org.jetbrains.compose.components:components-ui-tooling-preview", version.ref = "jetbrains-composeComponentsUiToolingPreview" }
 
+# Coil
+coilkt-coil3 = { module = "io.coil-kt.coil3:coil", version.ref = "coilkt-coil3" }
+coilkt-coil3-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coilkt-coil3ComposeCore" }
+coilkt-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilkt-coilCompose" }
+
+#Moko
+icerock-moko-resources = { module = "dev.icerock.moko:resources", version.ref = "icerock-mokoResources" }
+
+# Android
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+
 [plugins]
-#Jetbrains
+# Jetbrains
 jetbrains-kotlin-multiplatform-plugin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "jetbrains-kotlinMultiplatformPlugin" }
 jetbrains-kotlin-jvm-plugin = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlinJvmPlugin" }
 jetbrains-compose-plugin = { id = "org.jetbrains.compose", version.ref = "jetbrains-composePlugin" }
-jetbrains-kotlin-native-cocoapods-plugin = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "jetbrains-kotlinNativeCocoapodsPlugin"}
+jetbrains-kotlin-native-cocoapods-plugin = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "jetbrains-kotlinNativeCocoapodsPlugin" }
 
+# Moko
+icerock-multiplatform-resources-plugin = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "icerock-multiplatformResourcesPlugin" }
+
+# Android
 android-library-plugin = { id = "com.android.library", version.ref = "agp" }
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 

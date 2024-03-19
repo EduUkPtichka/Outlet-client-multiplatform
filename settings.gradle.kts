@@ -1,8 +1,6 @@
 rootProject.name = "Outlet-client-multiplatform"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-// build.gradle.kts
-
 pluginManagement {
     repositories {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
@@ -20,12 +18,17 @@ dependencyResolutionManagement {
     }
 }
 
+// Build Support Gradle - Мои помощники по сборке проекта.
 includeBuild("build-support-buildconfig")
 
-//Presentation
+// Presentation
 include(":common-feature-presentation:jetbrains-compose:home-jetbrains-compose")
 
-include(":composeApp")
+// Resources
+include(":common-resources")
 
-//Pojo/Poko
+// Pojo/Poko
 include("pojo-poko")
+
+// Test Application
+include(":composeApp")

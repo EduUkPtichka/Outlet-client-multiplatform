@@ -8,6 +8,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm.plugin) apply false
     alias(libs.plugins.jetbrains.kotlin.native.cocoapods.plugin) apply false
 
+    // Mako
+    alias(libs.plugins.icerock.multiplatform.resources.plugin) apply false
+
     // Android
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.android.library.plugin) apply false
