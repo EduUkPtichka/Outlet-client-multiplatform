@@ -8,6 +8,7 @@ plugins {
 }
 
 kotlin {
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -15,6 +16,7 @@ kotlin {
             }
         }
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -41,6 +43,9 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+
+            // Kotlin
+            implementation(libs.jetbrains.kotlinx.collections.immutable)
 
             // Jetbrains Compose
             implementation(libs.jetbrains.compose.runtime)

@@ -1,4 +1,4 @@
-package com.ukenov_outlet.home_jetbrains_compose
+package com.ukenov_outlet.home_jetbrains_compose.primary_banner.primary_banner_item
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

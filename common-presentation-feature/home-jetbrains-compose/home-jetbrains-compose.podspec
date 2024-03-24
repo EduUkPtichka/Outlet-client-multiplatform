@@ -17,13 +17,13 @@ Pod::Spec.new do |spec|
         Kotlin framework 'home_jetbrains_compose' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
-            ./gradlew :common-feature-presentation:jetbrains-compose:home-jetbrains-compose:generateDummyFramework
+            ./gradlew :common-presentation-feature:home-jetbrains-compose:generateDummyFramework
 
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
                 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':common-feature-presentation:jetbrains-compose:home-jetbrains-compose',
+        'KOTLIN_PROJECT_PATH' => ':common-presentation-feature:home-jetbrains-compose',
         'PRODUCT_MODULE_NAME' => 'home_jetbrains_compose',
     }
                 
@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
                 fi
                 set -ev
                 REPO_ROOT="$PODS_TARGET_SRCROOT"
-                "$REPO_ROOT/../../../gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
+                "$REPO_ROOT/../../gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
                     -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"

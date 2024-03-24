@@ -32,6 +32,9 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+
+            // Jetbrains\Jetpack Compose
+            implementation(libs.androidx.foundation)
         }
         commonMain.dependencies {
             implementation(compose.runtime)

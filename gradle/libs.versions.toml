@@ -24,6 +24,10 @@ gmazzo-buildconfigPlugin = "5.3.5"
 
 #-------------------------------------------------------------------------------------------------#
 
+# Kotlin
+# https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-collections-immutable/0.3.5
+jetbrains-kotlinxCollectionsImmutable = "0.3.7"
+
 # Jetbrains Compose
 #   https://mvnrepository.com/artifact/org.jetbrains.compose.runtime/runtime/1.6.1
 jetbrains-composeRuntime = "1.6.1"
@@ -35,6 +39,10 @@ jetbrains-composeMaterial3 = "1.6.1"
 jetbrains-composeUi = "1.6.1"
 #   https://central.sonatype.com/artifact/org.jetbrains.compose.components/components-ui-tooling-preview
 jetbrains-composeComponentsUiToolingPreview = "1.6.1"
+
+# Jetbrains/Jetpack Compose Library
+#   https://androidx.tech/packages/androidx.compose.foundation.pager
+androidx-foundation = "1.7.0-alpha04"
 
 # Coil
 #   https://central.sonatype.com/artifact/io.coil-kt.coil3/coil
@@ -72,12 +80,19 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
+# Kotlin
+jetbrains-kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "jetbrains-kotlinxCollectionsImmutable"}
+
 # Jetbrain Compose
 jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "jetbrains-composeRuntime" } #runtimeOnly
 jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jetbrains-composeFoundation" }
 jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "jetbrains-composeMaterial3" }
 jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "jetbrains-composeUi" }
 jetbrains-compose-components-ui-toooling-preview = { module = "org.jetbrains.compose.components:components-ui-tooling-preview", version.ref = "jetbrains-composeComponentsUiToolingPreview" }
+#org.jetbrains.compose.animation:animation
+
+# Jetbrains/Jetpack Compose Library
+androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-foundation" }
 
 # Coil
 coilkt-coil3 = { module = "io.coil-kt.coil3:coil", version.ref = "coilkt-coil3" }
